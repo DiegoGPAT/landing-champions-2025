@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+@font-face {
+  font-family: 'Gobold';
+  src: url('../fonts/Gobold/Gobold Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gobold';
+  src: url('../fonts/Gobold/Gobold Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gobold';
+  src: url('../fonts/Gobold/Gobold Regular Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gobold';
+  src: url('../fonts/Gobold/Gobold Bold Italic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+

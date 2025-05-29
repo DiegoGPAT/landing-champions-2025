@@ -1,0 +1,48 @@
+@import "./assets/styles/fonts.css";
+@import "tailwindcss";
+
+@theme {
+  --font-gobold: "Gobold"; 
+  --font-rubik: "Rubik"; 
+}
+
+
+@layer utilities {
+  .bg-custom-radial {
+    background: radial-gradient(128.87% 127.65% at -3.7% 122.51%, #B80000 0%, #000000 37.98%), #000000;
+  }
+
+}
+
+@layer components {
+  .at-input {
+    @apply  text-sm border-solid border-1 border-gray-400 bg-[#222222] rounded-md text-gray-300 p-3 outline-0
+  }
+
+  .at-button {
+    @apply  border-none outline-0 skew-x-[-10deg] font-gobold font-bold px-4 py-3;
+    @apply  duration-150 ease-in-out cursor-pointer hover:opacity-90; 
+  }
+
+  .at-shadow-img{
+    @apply shadow-[0px_0px_9px_2px_#fb3333]
+  }
+}
+
+
+
+:root {
+  font-family: "Rubik", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* color: rgba(255, 255, 255, 0.87); */
+  color: #ffff;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
