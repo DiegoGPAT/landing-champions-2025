@@ -5,7 +5,7 @@ import { MainLayout } from "./components/layouts";
 
 function App() {
   return (
-    <main className="bg-black min-w-screenmin- h-screen">
+    <main className="bg-black min-w-screen h-screen">
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path="/login" element={<LoginPage />} />

@@ -7,7 +7,7 @@ export const MainHero = () => {
       <img
         src={LogoAtImg}
         alt="logo_at"
-        className="block md:hidden m-auto h-[60px] mt-10 mb-2"
+        className="block md:hidden m-auto h-[55px] w-auto mt-8 mb-2"
       />
 
       <img
