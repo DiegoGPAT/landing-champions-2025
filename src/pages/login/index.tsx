@@ -40,7 +40,7 @@ export const LoginPage = () => {
       <form
         autoComplete="off"
         onSubmit={handleSubmit(onSubmit)}
-        className="my-4 mx-auto flex flex-col items-center max-w-[500px]"
+        className="my-4 mx-auto flex flex-col items-center max-w-[450px]"
       >
         <h1 className="font-gobold italic text-center uppercase text-xl mb-8">
           Sobrin@, vive una final de champions de cine y gana con estos
@@ -62,7 +62,9 @@ export const LoginPage = () => {
             <option value={"PASAPORTE"}>PASAPORTE</option>
             <option value={"PTP"}>PTP</option>
           </select>
-          <small className="block mt-1">{errors.documentType?.message}</small>
+          <small className="block mt-1 text-xs">
+            {errors.documentType?.message}
+          </small>
         </div>
 
         <div className="mb-6">
@@ -75,7 +77,9 @@ export const LoginPage = () => {
               validate: validateDocumentNumber,
             })}
           />
-          <small className="block mt-1">{errors.documentNumber?.message}</small>
+          <small className="block mt-1 text-xs">
+            {errors.documentNumber?.message}
+          </small>
         </div>
 
         <button className="at-button bg-[#FFC700] text-gray-800 text-sm mb-8">

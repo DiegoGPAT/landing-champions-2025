@@ -30,6 +30,7 @@ export const PageLayout = ({ children }: Props) => {
           className="hidden md:block m-auto h-[70px] mb-10"
         />
         {children}
+        <br />
       </div>
     </div>
   );

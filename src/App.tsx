@@ -5,10 +5,10 @@ import { MainLayout } from "./components/layouts";
 
 function App() {
   return (
-    <main className="bg-black min-w-screen h-screen">
+    <main className="bg-black w-full h-screen">
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/benefits" element={<BenefitsPage />} />
         </Route>
       </Routes>

@@ -16,7 +16,8 @@
 
 @layer components {
   .at-input {
-    @apply  text-sm border-solid border-1 border-gray-400 bg-[#222222] rounded-md text-gray-300 p-3 outline-0
+    @apply  text-sm border-solid border-1 border-gray-400 bg-[#222222] rounded-md text-gray-300 p-3 outline-0;
+    @apply  focus:border-white
   }
 
   .at-button {

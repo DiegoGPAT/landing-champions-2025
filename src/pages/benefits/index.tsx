@@ -4,13 +4,13 @@ import CincuentaGirosImg from "../../assets/images/50giros.png";
 
 export const BenefitsPage = () => {
   return (
-    <div className="w-full py-8 px-6 sm:px-10">
-      <div className="max-w-[600px] mx-auto">
+    <div className="w-full py-4 px-6 sm:px-10 ">
+      <div className="max-w-[600px] mx-auto ">
         <div className="flex flex-col items-center mb-8">
           <h1 className="font-gobold italic text-center text-xl mb-4">
             ¡SOBRIN@! HEMOS RECIBIDO TU INFORMACIÓN CON ÉXITO.
           </h1>
-          <p className="font-rubik  max-w-[500px] text-center">
+          <p className="font-rubik text-center">
             En aproximadamente 15 minutos tendrás los siguientes beneficios
             asignados a tu cuenta:
           </p>
