@@ -1,8 +1,13 @@
 import GananciaAumentadaImg from "../../assets/images/ganancia-aumentada.png";
+import ApuestaGratisMobileImg from "../../assets/images/apuesta-gratis-mobile.png";
 import ApuestaGratisImg from "../../assets/images/apuesta-gratis.png";
+import CincuentaGirosMobileImg from "../../assets/images/50giros-mobile.jpeg";
 import CincuentaGirosImg from "../../assets/images/50giros.png";
+import { isMobileDevice } from "../../utils";
 
 export const BenefitsPage = () => {
+  const isMobile = isMobileDevice();
+
   return (
     <div className="w-full py-4 px-6 sm:px-10 ">
       <div className="max-w-[600px] mx-auto ">
@@ -28,7 +33,7 @@ export const BenefitsPage = () => {
             *Solo aplica al evento Inter vs PSG. No aplica para apuestas con
             bono
           </p>
-          <div className="grid grid-cols-2 p-6">
+          <div className="grid grid-cols-2 px-6 py-4">
             <div className="flex  items-center ">
               <h4 className="text-left font-gobold italic uppercase text-wrap">
                 GANANCIA ADICIONAL <br /> MÁXIMA: S/200
@@ -54,9 +59,9 @@ export const BenefitsPage = () => {
             para activar:
           </p>
           <img
-            src={ApuestaGratisImg}
+            src={isMobile ? ApuestaGratisMobileImg : ApuestaGratisImg}
             className="at-shadow-img rounded-md"
-            alt="ganancia aumentada"
+            alt="apuesta gratis"
           />
         </div>
 
@@ -65,13 +70,13 @@ export const BenefitsPage = () => {
             3. 50 GIROS GRATIS PARA LOS JUEGOS DE PRAGMATIC PLAY.
           </h2>
           <p className="font-rubik text-center mb-6">
-            ¡Solo podrás usarlos hoy, aprovecha! Lo podrás encontrar en tu
-            sección de{" "}
+            Lo podrás encontrar en tu sección de{" "}
             <span className="font-semibold">“Mis bonos y torneos”</span> listo
             para activar:
           </p>
+
           <img
-            src={CincuentaGirosImg}
+            src={isMobile ? CincuentaGirosMobileImg : CincuentaGirosImg}
             className="at-shadow-img rounded-md"
             alt="50 giros"
           />
