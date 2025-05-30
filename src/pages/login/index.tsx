@@ -36,18 +36,34 @@ export const LoginPage = () => {
 
   const validateDocumentNumber = (value: string) => {
     const length = value.length;
+
+    // Validar numérico para todos excepto PAS
+    if (documentType !== "PAS" && !/^\d+$/.test(value)) {
+      return "El número de documento solo debe contener dígitos";
+    }
+
     if (documentType === "DNI" && length !== 8) {
       return "El DNI debe tener 8 dígitos";
     }
-    if (documentType === "CE" && (length < 9 || length > 12)) {
-      return "El CE debe tener de 9 a 12 caracteres";
+
+    if (documentType === "CE" && (length < 8 || length > 12)) {
+      return "El CE debe tener de 8 a 12 dígitos";
     }
-    if (documentType === "PASAPORTE" && (length < 9 || length > 15)) {
-      return "El pasaporte debe tener de 9 a 15 dígitos";
+
+    if (documentType === "PAS") {
+      if (length < 8 || length > 16) {
+        return "El pasaporte debe tener de 8 a 16 caracteres";
+      }
+      const alphanumericRegex = /^[a-zA-Z0-9]+$/;
+      if (!alphanumericRegex.test(value)) {
+        return "El pasaporte solo debe contener letras y números";
+      }
     }
-    if (documentType === "PTP" && (length < 9 || length > 15)) {
-      return "El PTP debe tener de 9 a 15 dígitos";
+
+    if (documentType === "PTP" && (length < 8 || length > 12)) {
+      return "El PTP debe tener de 8 a 12 dígitos";
     }
+
     return true;
   };
 
@@ -63,19 +79,19 @@ export const LoginPage = () => {
           beneficios
         </h1>
 
-        <div className="mb-3">
+        <div className="mb-3 w-[250px]">
           <select
             {...register("documentType", {
               required: "Este campo es requerido",
             })}
-            className="at-input w-[250px] "
+            className="at-input w-full "
           >
             <option value={""} disabled selected>
               Tipo de documento
             </option>
             <option value={"DNI"}>DNI</option>
             <option value={"CE"}>CE</option>
-            <option value={"PASAPORTE"}>PASAPORTE</option>
+            <option value={"PAS"}>PASAPORTE</option>
             <option value={"PTP"}>PTP</option>
           </select>
           <small className="block mt-1 text-xs">
@@ -83,17 +99,13 @@ export const LoginPage = () => {
           </small>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-6 w-[250px]">
           <input
             placeholder="Número de documento"
             type="text"
-            className="at-input w-[250px]"
+            className="at-input w-full"
             {...register("documentNumber", {
               required: "Este campo es requerido",
-              pattern: {
-                value: /^[0-9]+$/,
-                message: "Solo se permiten números",
-              },
               validate: validateDocumentNumber,
             })}
           />
