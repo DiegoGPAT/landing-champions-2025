@@ -40,13 +40,13 @@ export const LoginPage = () => {
       return "El DNI debe tener 8 dígitos";
     }
     if (documentType === "CE" && (length < 9 || length > 12)) {
-      return "El CE debe tener entre 9 y 12 caracteres";
+      return "El CE debe tener de 9 a 12 caracteres";
     }
-    if (documentType === "PASAPORTE" && (length < 6 || length > 9)) {
-      return "El pasaporte debe tener entre 6 y 9 caracteres";
+    if (documentType === "PASAPORTE" && (length < 9 || length > 15)) {
+      return "El pasaporte debe tener de 9 a 15 dígitos";
     }
-    if (documentType === "PTP" && length !== 9) {
-      return "El PTP debe tener 9 caracteres";
+    if (documentType === "PTP" && (length < 9 || length > 15)) {
+      return "El PTP debe tener de 9 a 15 dígitos";
     }
     return true;
   };
@@ -90,6 +90,10 @@ export const LoginPage = () => {
             className="at-input w-[250px]"
             {...register("documentNumber", {
               required: "Este campo es requerido",
+              pattern: {
+                value: /^[0-9]+$/,
+                message: "Solo se permiten números",
+              },
               validate: validateDocumentNumber,
             })}
           />
