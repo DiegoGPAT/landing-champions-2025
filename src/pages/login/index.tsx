@@ -1,9 +1,13 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
-import type { IFormLogin } from "./types/form-login.interface";
 import { useNavigate } from "react-router";
+import { ChampionService } from "../../services";
+import type { IFormLogin } from "./types";
+import { useTransition } from "react";
+import { toast } from "sonner";
 
 export const LoginPage = () => {
   const navigate = useNavigate(); // 2. Inicializa
+  const [isPending, startTransition] = useTransition();
   const {
     register,
     handleSubmit,
@@ -14,8 +18,20 @@ export const LoginPage = () => {
   const documentType = watch("documentType");
 
   const onSubmit: SubmitHandler<IFormLogin> = (data) => {
-    console.log(data);
-    navigate("/benefits");
+    startTransition(async () => {
+      try {
+        const resp = await ChampionService.register({
+          num_doc: data.documentNumber,
+          type_doc: data.documentType,
+        });
+        toast.success(resp.message);
+        navigate("/benefits");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
+        console.log(error);
+        toast.error(error.message || "Ocurrio un error");
+      }
+    });
   };
 
   const validateDocumentNumber = (value: string) => {
@@ -82,7 +98,10 @@ export const LoginPage = () => {
           </small>
         </div>
 
-        <button className="at-button bg-[#FFC700] text-gray-800 text-sm mb-8">
+        <button
+          disabled={isPending}
+          className="at-button bg-[#FFC700] text-gray-800 text-sm mb-8"
+        >
           ACCEDE A TUS BENEFICIOS
         </button>
 
@@ -100,9 +119,12 @@ export const LoginPage = () => {
           En caso no lo seas, dale clic al botón para poder registrarte.
         </p>
 
-        <button className="at-button bg-[#FB3333] text-sm text-gray-100">
+        <a
+          href="https://www.apuestatotal.com/registro/"
+          className="at-button bg-[#FB3333] text-sm text-gray-100"
+        >
           REGÍSTRATE AQUÍ
-        </button>
+        </a>
       </form>
     </div>
   );
