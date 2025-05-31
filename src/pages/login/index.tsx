@@ -137,6 +137,8 @@ export const LoginPage = () => {
 
         <a
           href="https://www.apuestatotal.com/registro/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="at-button bg-[#FB3333] text-sm text-gray-100"
         >
           REGÍSTRATE AQUÍ
